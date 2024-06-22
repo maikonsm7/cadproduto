@@ -1,0 +1,100 @@
+:root{
+    --cor-tema: #242424;
+    --cor-secondary: #39FF14;
+}
+*{
+    font-family: Helvetica;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-tema);
+    color: white;
+}
+.container{
+    max-width: 740px;
+    margin: auto;
+}
+.navbar{
+    border-bottom: 1px solid var(--cor-secondary);
+}
+.navbar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+.navbar ul li{
+    padding: 1em;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.navbar ul li a:hover{
+    color: var(--cor-secondary);
+}
+.auth-container{
+    margin: 0 auto;
+    width: 230px;
+}
+.auth-container h2{
+    margin-bottom: 1em;
+    border-left: 5px solid var(--cor-secondary);
+    padding-left: .6em;
+}
+.form-control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+}
+.form-control label{
+    font-weight: bold;
+    margin-top: 3px;
+}
+.form-control input{
+    padding: .8em;
+    margin-top: 3px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.btn{
+    text-decoration: none;
+    padding: .8em;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: var(--cor-secondary);
+    transition: 0.3s;
+    color: var(--cor-tema);
+    border: none;
+    cursor: pointer;
+}
+.btn-secondary{
+    background-color: var(--cor-secondary);
+    color: var(--cor-tema);
+    border: 1px solid var(--cor-tema);
+}
+.btn:hover{
+    opacity: .6;
+}
+.btn-secondary:hover{
+    background-color: var(--cor-tema);
+    color: var(--cor-bg);
+    opacity: 1;
+}
+.link{
+    text-decoration: none;
+    color: var(--cor-secondary);
+}
+.message{
+    padding: .6em;
+    background-color: #c8ffb2;
+    color: var(--cor-tema);
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1em;
+    width: 230px;
+    font-size: .9em;
+}
