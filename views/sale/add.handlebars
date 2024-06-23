@@ -1,0 +1,23 @@
+<div class="produto-container">
+    <h2>Adicionar Venda</h2>
+    <form action="/sales/add" method="post" class="form">
+        <div class="form-control">
+            <label for="nome_cliente">Nome do cliente</label>
+            <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Digite o nome do cliente" required>
+        </div>
+        <div class="form-control">
+            <label for="produto">Produto</label>
+            <select id="produto" name="produto">
+                {{#each produtos}}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="qtd_prod">QTD</label>
+            <input type="number" name="qtd_prod" id="qtd_prod" required>
+        </div>
+        <input type="submit" class="btn" value="Adicionar">
+    </form>
+    <p><a href="/sales" class="link">Voltar</a></p>
+</div>

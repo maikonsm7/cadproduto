@@ -27,6 +27,8 @@ const Produto = require('./models/Produto')
 const produtoRoutes = require('./routes/produtoRoutes')
 const authRoutes = require('./routes/authRoutes')
 const categoryRoutes = require('./routes/categoryRoutes')
+const saleRoutes = require('./routes/saleRoutes')
+const dashRoutes = require('./routes/dashRoutes')
 
 const authController = require('./controllers/authController')
 
@@ -58,6 +60,8 @@ app.use((req, res, next)=>{
 
 app.use('/produtos', produtoRoutes)
 app.use('/categories', categoryRoutes)
+app.use('/sales', saleRoutes)
+app.use('/dashboard', dashRoutes)
 app.use('/', authRoutes)
 app.get('/', authController.login)
 

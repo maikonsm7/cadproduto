@@ -1,0 +1,26 @@
+<div class="title-container">
+    <h2>Todos as Vendas</h2>
+<div class="add">
+    <a href="/sales/add" class="btn add">Adicionar Venda</a>
+</div>
+</div>
+<div class="produtos">
+{{#each salesUsuario}}
+<ul>
+    <li>
+        <div class="dados">
+        <span>{{this.nome_cliente}}</span>
+        <span class="dados2">Produto: {{this.Produto.nome}}</span>
+        <span class="dados2">QTD: {{this.qtd_prod}}</span>
+        </div>
+        <span class="actions">
+            {{!-- <a href="/produtos/edit/{{this.id}}" class="btn btn-secondary btn-actions">Editar</a> --}}
+            <a href="/sales/remove/{{this.id}}" class="btn btn-secondary btn-actions">Remover</a>
+        </span>
+    </li>
+</ul>
+{{/each}}
+{{#if emptySales}}
+<p class="empty-produtos">Ainda não há vendas realizadas</p>
+{{/if}}
+</div>

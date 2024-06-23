@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -14,6 +16,8 @@
             {{#if session.userid}}
             <li><a href="/produtos">Produtos</a></li>
             <li><a href="/categories">Categorias</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/sales">Vendas</a></li>
             <li><a href="/logout">Sair</a></li>
             {{else}}
             <li><a href="/login">Login</a></li>

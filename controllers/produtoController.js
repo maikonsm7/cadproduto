@@ -8,20 +8,29 @@ class produtoController {
         const UsuarioId = req.session.userid
         let search = ''
         let qtdSearch = ''
+        let CategoryId = null
         if (req.query.search) {
             search = req.query.search
         }
+        if(req.query.category){
+            CategoryId = parseInt(req.query.category)
+        }
         try {
-            const produtosData = await Produto.findAll({ include: Category, where: { nome: { [Op.like]: `%${search}%` }, UsuarioId } }) // traz os dados do usuário junto, se tiver algo na pesquisa, ele busca só os itens filtrados
+            const [produtosData, categories] = await Promise.all([
+                CategoryId ?
+                Produto.findAll({ include: Category, where: { CategoryId, UsuarioId } }) :
+                Produto.findAll({ include: Category, where: { nome: { [Op.like]: `%${search}%`}, UsuarioId } }),
+                Category.findAll({raw: true, where: {UsuarioId}})
+            ])
             const produtosUsuario = produtosData.map(prod => prod.get({ plain: true })) // pegar somente os valores das duas tabelas juntas
 
             let emptyProdutos = false
-            if (produtosUsuario.length === 0 && search === '') {
+            if (produtosUsuario.length === 0 && search === '' && CategoryId === null) {
                 emptyProdutos = true
-            } else if (produtosUsuario.length >= 0 && search !== '') {
+            } else if (produtosUsuario.length >= 0 && search !== '' && CategoryId !== null) {
                 qtdSearch = `${produtosUsuario.length} ${produtosUsuario.length > 1 ? 'resultados' : 'resultado'}`
             }
-            res.render('produto/all', { produtosUsuario, emptyProdutos, qtdSearch })
+            res.render('produto/all', { produtosUsuario, emptyProdutos, qtdSearch, categories })
         } catch (error) {
             console.error('Erro: ', error)
         }
@@ -45,6 +54,7 @@ class produtoController {
             nome: req.body.nome,
             preco: req.body.preco,
             qtd_estoque: req.body.estoque,
+            qtd_vendas: 0,
             UsuarioId: req.session.userid,
             CategoryId: req.body.category
         }
@@ -93,7 +103,8 @@ class produtoController {
         const produto = {
             nome: req.body.nome,
             preco: req.body.preco,
-            qtd_estoque: req.body.estoque
+            qtd_estoque: req.body.estoque,
+            CategoryId: req.body.category
         }
         try {
             await Produto.update(produto, { where: { id, UsuarioId } })

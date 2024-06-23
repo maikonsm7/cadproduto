@@ -1,0 +1,25 @@
+<h2>Dashboard</h2>
+<canvas id="meuGrafico"></canvas>
+<div id="dados" labels="{{ labels }}" valores="{{ valores }}"></div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const divDados = document.getElementById('dados')
+            const labels = divDados.getAttribute('labels').split(',')
+            const valores = divDados.getAttribute('valores').split(',')
+            const ctx = document.getElementById('meuGrafico').getContext('2d');
+            const meuGrafico = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Relatório de vendas',
+                        data: valores,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {}
+            });
+        });
+    </script>

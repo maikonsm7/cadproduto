@@ -1,12 +1,23 @@
 <div class="title-container">
-    <h2>Todos os Produtos</h2>
+<h2>Todos os Produtos</h2>
+<div class="add">
+    <a href="/produtos/add" class="btn add">Adicionar Produto</a>
+</div>
+</div>
+<p>Filtros</p>  
+<div class="filter-container">
     <form action="/produtos" method="get">
         <input type="text" name="search" class="search" placeholder="Pesquisar...">
         <input type="submit" class="btn" value="Buscar">
     </form>
-</div>
-<div class="add">
-    <a href="/produtos/add" class="btn add">Adicionar Produto</a>
+    <form action="/produtos" method="get">
+        <select id="category" name="category">
+            {{#each categories}}
+            <option value="{{this.id}}">{{this.descricao}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" class="btn" value="Filtrar">
+    </form>
 </div>
 
 {{#if qtdSearch}}
@@ -14,23 +25,24 @@
 {{/if}}
 
 <div class="produtos">
-{{#each produtosUsuario}}
-<ul>
-    <li>
-        <div class="dados">
-        <span>{{this.nome}}</span>
-        <span class="dados2">Preço: {{this.preco}}</span>
-        <span class="dados2">Categoria: {{this.Category.descricao}}</span>
-        <span class="dados2">Estoque: {{this.qtd_estoque}}</span>
-        </div>
-        <span class="actions">
-            <a href="/produtos/edit/{{this.id}}" class="btn btn-secondary btn-actions">Editar</a>
-            <a href="/produtos/remove/{{this.id}}" class="btn btn-secondary btn-actions">Remover</a>
-        </span>
-    </li>
-</ul>
-{{/each}}
-{{#if emptyProdutos}}
-<p class="empty-produtos">Ainda não há produtos cadastrados</p>
-{{/if}}
+    {{#each produtosUsuario}}
+    <ul>
+        <li>
+            <div class="dados">
+                <span>{{this.nome}}</span>
+                <span class="dados2">Preço: {{this.preco}}</span>
+                <span class="dados2">Categoria: {{this.Category.descricao}}</span>
+                <span class="dados2">Estoque: {{this.qtd_estoque}}</span>
+                <span class="dados2">Vendas: {{this.qtd_vendas}}</span>
+            </div>
+            <span class="actions">
+                <a href="/produtos/edit/{{this.id}}" class="btn btn-secondary btn-actions">Editar</a>
+                <a href="/produtos/remove/{{this.id}}" class="btn btn-secondary btn-actions">Remover</a>
+            </span>
+        </li>
+    </ul>
+    {{/each}}
+    {{#if emptyProdutos}}
+    <p class="empty-produtos">Ainda não há produtos cadastrados</p>
+    {{/if}}
 </div>
