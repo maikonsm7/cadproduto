@@ -19,12 +19,14 @@ app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
 // model
-const Produto = require('./models/Produto')
 const Usuario = require('./models/Usuario')
+const Category = require('./models/Category')
+const Produto = require('./models/Produto')
 
 // routes
 const produtoRoutes = require('./routes/produtoRoutes')
 const authRoutes = require('./routes/authRoutes')
+const categoryRoutes = require('./routes/categoryRoutes')
 
 const authController = require('./controllers/authController')
 
@@ -55,6 +57,7 @@ app.use((req, res, next)=>{
 })
 
 app.use('/produtos', produtoRoutes)
+app.use('/categories', categoryRoutes)
 app.use('/', authRoutes)
 app.get('/', authController.login)
 

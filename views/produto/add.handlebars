@@ -1,19 +1,27 @@
 <div class="produto-container">
-<h2>Adicionar Produto</h2>
-<form action="/produtos/add" method="post" class="form">
-<div class="form-control">
-    <label for="nome">Nome</label>
-    <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
-</div>
-<div class="form-control">
-    <label for="preco">Preco</label>
-    <input type="text" name="preco" id="preco" placeholder="Digite o preço do produto" required>
-</div>
-<div class="form-control">
-    <label for="estoque">QTD Estoque</label>
-    <input type="number" name="estoque" id="estoque" required>
-</div>
-<input type="submit" class="btn" value="Adicionar">
-</form>
-<p><a href="/produtos" class="link">Voltar</a></p>
+    <h2>Adicionar Produto</h2>
+    <form action="/produtos/add" method="post" class="form">
+        <div class="form-control">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
+        </div>
+        <div class="form-control">
+            <label for="preco">Preco</label>
+            <input type="text" name="preco" id="preco" placeholder="Digite o preço do produto" required>
+        </div>
+        <div class="form-control">
+            <label for="category">Categoria</label>
+            <select id="category" name="category">
+                {{#each categories}}
+                <option value="{{this.id}}">{{this.descricao}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="estoque">QTD Estoque</label>
+            <input type="number" name="estoque" id="estoque" required>
+        </div>
+        <input type="submit" class="btn" value="Adicionar">
+    </form>
+    <p><a href="/produtos" class="link">Voltar</a></p>
 </div>

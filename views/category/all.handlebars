@@ -1,0 +1,21 @@
+<h2>Todas as Categorias</h2>
+<div class="add">
+    <a href="/categories/add" class="btn add">Adicionar Categoria</a>
+</div>
+
+<div class="produtos">
+{{#each categoriesUsuario}}
+<ul>
+    <li>
+        <span>{{this.descricao}}</span>
+        <span class="actions">
+            <a href="/categories/edit/{{this.id}}" class="btn btn-secondary btn-actions">Editar</a>
+            <a href="/categories/remove/{{this.id}}" class="btn btn-secondary btn-actions">Remover</a>
+        </span>
+    </li>
+</ul>
+{{/each}}
+{{#if emptyCategories}}
+<p class="empty-produtos">Ainda não há categorias cadastradas</p>
+{{/if}}
+</div>

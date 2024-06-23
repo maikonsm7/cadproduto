@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 const db = require('../db/conn')
 const Usuario = require('./Usuario')
+const Category = require('./Category')
 
 const Produto = db.define('Produto', {
     nome: {type: DataTypes.STRING, required: true},
@@ -10,5 +11,8 @@ const Produto = db.define('Produto', {
 
 Produto.belongsTo(Usuario)
 Usuario.hasMany(Produto)
+
+Produto.belongsTo(Category)
+Category.hasMany(Produto)
 
 module.exports = Produto
