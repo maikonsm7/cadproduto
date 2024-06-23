@@ -35,7 +35,7 @@ body{
 .navbar ul li a:hover{
     color: var(--cor-secondary);
 }
-.auth-container{
+.auth-container, .produto-container{
     margin: 0 auto;
     width: 230px;
 }
@@ -71,16 +71,16 @@ body{
     cursor: pointer;
 }
 .btn-secondary{
-    background-color: var(--cor-secondary);
-    color: var(--cor-tema);
-    border: 1px solid var(--cor-tema);
+    background-color: var(--cor-tema);
+    color: var(--cor-secondary);
+    border: 1px solid var(--cor-secondary);
 }
 .btn:hover{
     opacity: .6;
 }
 .btn-secondary:hover{
-    background-color: var(--cor-tema);
-    color: var(--cor-bg);
+    background-color: var(--cor-secondary);
+    color: var(--cor-tema);
     opacity: 1;
 }
 .link{
@@ -97,4 +97,58 @@ body{
     margin-top: 1em;
     width: 230px;
     font-size: .9em;
+}
+.search{
+    padding: .8em;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.btn-actions{
+    padding: .5em;
+    font-size: .7em;
+    margin-left: 1em;
+}
+.empty-produtos{
+    color: gray;
+    text-align: center;
+    padding: 1em;
+}
+.qtd-search{
+    text-align: center;
+    padding: 1em;
+    color: var(--cor-secondary);
+}
+.title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.add{
+    text-align: center;
+    margin-top: 2em;
+}
+.produtos{
+   margin-top: 2em;
+}
+.produtos ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.produtos ul li{
+    padding: .7em;
+    margin-bottom: .5em;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 5px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dados{
+    display: flex;
+    flex-direction: column;
+}
+.dados .dados2{
+    font-size: .8em;
+    color: gray;
 }

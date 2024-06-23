@@ -1,0 +1,20 @@
+<div class="produto-container">
+<h2>Editar Produto</h2>
+<form action="/produtos/edit" method="post" class="form">
+<input type="hidden" name="id" id="id" value="{{produto.id}}">
+<div class="form-control">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" value="{{produto.nome}}" required>
+</div>
+<div class="form-control">
+    <label for="preco">Preco</label>
+    <input type="text" name="preco" id="preco" placeholder="Digite o preço do produto" value="{{produto.preco}}" required>
+</div>
+<div class="form-control">
+    <label for="estoque">QTD Estoque</label>
+    <input type="number" name="estoque" id="estoque" value="{{produto.qtd_estoque}}" required>
+</div>
+<input type="submit" class="btn" value="Salvar">
+</form>
+<p><a href="/produtos" class="link">Voltar</a></p>
+</div>

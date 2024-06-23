@@ -59,6 +59,7 @@ app.use('/', authRoutes)
 app.get('/', authController.login)
 
 conn
+// .sync({force: true})
 .sync()
 .then(()=>{
     app.listen(port, ()=>{
